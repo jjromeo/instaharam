@@ -21,3 +21,17 @@ describe 'posts' do
 		end
 	end
 end
+
+
+describe 'adding a post' do 
+	context 'adding a valid post' do 
+		it 'prompts user to fill in a form and then displays post' do
+			visit '/posts'
+			click_link "Add a post"
+			fill_in 'Caption', with: 'So much fun!'
+			click_button 'Post'
+			expect(page).to have_content 'So much fun!'
+		end
+	end
+end
+
