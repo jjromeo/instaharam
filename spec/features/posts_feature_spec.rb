@@ -28,6 +28,7 @@ describe 'adding a post' do
 		it 'prompts user to fill in a form and then displays post' do
 			visit '/posts'
 			click_link "Add a post"
+			attach_file('Image', 'spec/fixtures/images/default.jpeg')
 			fill_in 'Caption', with: 'So much fun!'
 			click_button 'Post'
 			expect(page).to have_content 'So much fun!'
