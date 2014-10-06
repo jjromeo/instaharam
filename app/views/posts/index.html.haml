@@ -7,6 +7,8 @@
 				= comment.text
 
 		= link_to "Comment!", new_post_comment_path(post)
+		= link_to 'like', post_likes_path(post), method: 'post'
+		= "#{pluralize(post.likes.count, 'like')}"
 -else
 	%h1 No posts yet
 
