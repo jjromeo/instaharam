@@ -2,6 +2,11 @@
 	- @posts.each do |post|
 		%h2= post.caption
 		= image_tag post.image.url
+		- post.comments.each do |comment|
+			%li
+				= comment.text
+
+		= link_to "Comment!", new_post_comment_path(post)
 -else
 	%h1 No posts yet
 
