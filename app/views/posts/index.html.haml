@@ -1,7 +1,7 @@
 -if @posts.any?
 	- @posts.each do |post|
-		%h2= post.caption
 		= image_tag post.image.url
+		%h2= post.caption
 		- post.comments.each do |comment|
 			%li
 				= comment.text
