@@ -6,7 +6,7 @@ describe 'liking a picture' do
 		cool_pic = Post.create(caption: 'Such a great pic!')
 	end
 
-	it "can like a picture updating the like count" do 
+	it "can like a post updating the like count", js: true do 
 		visit '/posts'
 		click_link 'like'
 		expect(page).to have_content '1 like'

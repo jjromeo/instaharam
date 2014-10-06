@@ -1,9 +1,9 @@
 class LikesController < ApplicationController
 
 def create
-	@post = Post.find(params[:post_id])
-	@post.likes.create
-	redirect_to posts_path
+	@posts = Post.find(params[:post_id])
+	@posts.likes.create
+	render json: {new_like_count: @posts.likes.count }
 end
 
 end
