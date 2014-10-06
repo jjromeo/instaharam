@@ -2,8 +2,9 @@
 	- @posts.each do |post|
 		= image_tag post.image.url
 		%h2= post.caption
-		%span{class:'likes-count'}
-			= "#{pluralize(post.likes.count, 'like')}"	
+		#likes
+			%span{class:'likes-count'}
+				= "#{pluralize(post.likes.count, 'like')}"
 			= link_to 'like', post_likes_path(post), class: "likes-link"
 		- post.comments.each do |comment|
 			%li
