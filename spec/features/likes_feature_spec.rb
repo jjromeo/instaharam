@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'liking a picture' do
+xdescribe 'liking a picture' do
 
 	before do 
 		cool_pic = Post.create(caption: 'Such a great pic!')
