@@ -45,5 +45,7 @@ gem 'poltergeist', group: :test
 
 gem 'haml-rails'
 gem "paperclip", "~> 4.2"
+gem 'bootstrap-sass', group: :development
+gem 'autoprefixer-rails', group: :development
 
 
