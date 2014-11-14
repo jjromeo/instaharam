@@ -3,5 +3,23 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 body {
-	padding-top: 30px
+	padding-top: 30px;
+    padding-left: 30px;
+}
+
+li {
+    list-style-type: none;
+}
+
+li {
+    display: inline;
+}
+
+ul {
+    display: inline;
+}
+
+.brand {
+    padding : 0;
+    margin : 0;
 }

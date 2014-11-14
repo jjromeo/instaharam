@@ -3,21 +3,21 @@
     %head
         %meta{charset:"utf-8"}
         %meta{name:"viewport", content:"width=device-width, initial-scale=1.0"}
-        %title= content_for?(:title) ? yield(:title) : "foundation-rails"
+        %title Instaharam
         = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
         = javascript_include_tag "vendor/modernizr"
         = csrf_meta_tags
         %link{href:"", rel:"stylesheet"}
     %body
-        .small-12.columns 
-            %h1 Something columny
-        %a{:href => "#"} Instaharam
-        %li
-            %a{:href => "#"} Home
-        %li
-            %a{:href => "#about"} About
-        %li
-            %a{:href => "#contact"} Contact
+        %nav
+            %h1= link_to "Instaharam", posts_path
+            %ul
+                %li
+                    - unless current_user
+                        = link_to "Sign in", new_user_session_path, class: "button tiny"
+                        = link_to "Register", new_user_registration_path, class: "button tiny" 
+                    - else
+                        = link_to "Sign out", destroy_user_session_path, method: "delete" 
         = yield
         = javascript_include_tag 'application', 'data-turbolinks-track' => true
 
