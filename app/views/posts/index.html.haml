@@ -11,8 +11,8 @@
 				= comment.text
 		= link_to "Comment!", new_post_comment_path(post)
 
--else
+- else
 	%h1 No posts yet
 
-
-= link_to "Add a post", new_post_path 
+- if current_user
+	= link_to "Add a post", new_post_path 
