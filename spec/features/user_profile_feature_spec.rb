@@ -9,7 +9,9 @@ describe 'user_profile' do
     end
 
     it 'shows all of the posts by that user' do 
-        click_link "profile"
+        click_link "Profile"
         expect(page).to have_content "So much fun!"
+        expect(current_path).not_to eq "/posts"
+        expect(current_path).not_to eq "/"
     end
 end

@@ -6,7 +6,12 @@ resources :posts do
   resources :likes
 end
 
+devise_scope :user do
+    get 'users/:id/show' => "profile#show", as: "user_profile"
+end
+
 root 'posts#index'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

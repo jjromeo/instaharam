@@ -18,6 +18,7 @@
                         = link_to "Register", new_user_registration_path, class: "button tiny" 
                     - else
                         = link_to "Sign out", destroy_user_session_path, method: "delete" 
+                        = link_to "Profile", user_profile_path(current_user)
         = yield
         = javascript_include_tag 'application', 'data-turbolinks-track' => true
 
