@@ -10,6 +10,7 @@
         - post.comments.each do |comment|
             %li
                 = comment.text
+                = "by #{User.find(comment.user_id).username}"
         = link_to "Comment!", new_post_comment_path(post)
 - else
     %h1= "This is where #{@user.username}'s posts will show"
