@@ -2,7 +2,8 @@
 
 	describe 'comments' do 
 		before {
-			Post.create(caption: 'testpost!')
+            sign_up
+            add_post
 		}
 
 		it "allows users to add a comment to a post" do 

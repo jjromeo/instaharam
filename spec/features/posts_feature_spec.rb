@@ -18,12 +18,13 @@ describe 'posts' do
 
 	context 'posts have been added' do 
 		before do 
-			Post.create(caption: 'Having fun!')
+            sign_up
+            add_post
 		end
 
 		it 'should display posts' do 
 			visit '/posts'
-			expect(page).to have_content('Having fun!')
+			expect(page).to have_content('So much fun!')
 			expect(page).not_to have_content('No posts yet')
 		end
 	end
@@ -40,6 +41,11 @@ describe 'adding a post' do
             add_post
 			expect(page).to have_content 'So much fun!'
 		end
+
+        it 'displays the name of the user who posted it' do 
+            add_post
+            expect(page).to have_content 'by tester'
+        end
 	end
     
     context 'when not signed in' do
