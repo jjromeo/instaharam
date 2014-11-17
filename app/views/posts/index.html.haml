@@ -1,6 +1,7 @@
 -if @posts.any?
     - @posts.each do |post|
-        = image_tag post.image.url
+        - unless post.image.url == "/images/original/missing.png"
+            = image_tag post.image.url
         %h2= post.caption
         by
         = link_to "#{post.user.username}", user_profile_path(post.user_id) 
