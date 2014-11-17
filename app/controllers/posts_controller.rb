@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
 
 	def index
+        @user = User
 		@posts = Post.all
 	end
 

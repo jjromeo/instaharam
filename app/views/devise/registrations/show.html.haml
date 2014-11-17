@@ -11,3 +11,5 @@
             %li
                 = comment.text
         = link_to "Comment!", new_post_comment_path(post)
+- else
+    %h1= "This is where #{@user.username}'s posts will show"

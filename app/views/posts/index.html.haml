@@ -2,7 +2,8 @@
     - @posts.each do |post|
         = image_tag post.image.url
         %h2= post.caption
-        = "by #{User.find(post.user_id).username}" 
+        by
+        = link_to "#{@user.find(post.user_id).username}", user_profile_path(post.user_id) 
         #likes
             %span{class:'likes-count'}
                 = "#{pluralize(post.likes.count, 'like')}"
