@@ -18,6 +18,17 @@
 .centering {
     margin-left: 35%;
 }
+.top-bar {
+    background-color: #008cba;
+}   
 
+.section.top-bar-section ul li{
+    background-color: #008cba;
+}
+.top-bar-section li:not(.has-form) a:not(.button) {
+    background-color: #008cba;
+}
 
-
+.top-bar-section li:not(.has-form) a:not(.button):hover {
+    background-color: red;
+}

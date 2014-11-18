@@ -1,23 +1,25 @@
 .large-10.columns
     .centering
-        -if @posts.any?
-            - @posts.each do |post|
-                - unless post.image.url == "/images/original/missing.png"
-                    = image_tag post.image.url, class: "post-image"
-                %p.post-text= post.caption
-                by
-                = link_to "#{post.user.username}", user_profile_path(post.user_id) 
-                #likes
-                    %span{class:'likes-count'}
-                        = "#{pluralize(post.likes.count, 'like')}"
-                    = link_to 'like', post_likes_path(post), class: "likes-link"
-                - post.comments.each do |comment|
-                    %li.post-text= "#{comment.text} by #{User.find(comment.user_id).username}"
-                -if current_user
-                    = link_to "Comment!", new_post_comment_path(post)
+        .post-container.panel
+            -if @posts.any?
+                - @posts.each do |post|
+                    .post.panel
+                        - unless post.image.url == "/images/original/missing.png"
+                            = image_tag post.image.url, class: "post-image"
+                        %p.post-text= post.caption
+                        by
+                        = link_to "#{post.user.username}", user_profile_path(post.user_id) 
+                        #likes
+                            %span{class:'likes-count'}
+                                = "#{pluralize(post.likes.count, 'like')}"
+                            = link_to 'like', post_likes_path(post), class: "likes-link"
+                        - post.comments.each do |comment|
+                            %li.post-text= "#{comment.text} by #{User.find(comment.user_id).username}"
+                        -if current_user
+                            = link_to "Comment!", new_post_comment_path(post)
 
-        - else
-            %h1 No posts yet
+            - else
+                %h1 No posts yet
 
-        - if current_user
-            = link_to "Add a post", new_post_path 
+            - if current_user
+                = link_to "Add a post", new_post_path 
