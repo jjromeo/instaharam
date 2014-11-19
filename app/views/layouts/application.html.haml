@@ -9,21 +9,22 @@
         = csrf_meta_tags
         %link{href:"", rel:"stylesheet"}
     %body
-        %nav.top-bar
-            %ul{class: "title-area", data:{"top-bar" => true}}       
-                %li{class: "name"}
-                    %h1= link_to "Instaharam", posts_path
-            %section.top-bar-section
-                %ul.right
-                    %li.divider
-                    - unless current_user
-                        %li= link_to "Sign in", new_user_session_path
+        .fixed
+            %nav.top-bar
+                %ul{class: "title-area", data:{"top-bar" => true}}       
+                    %li{class: "name"}
+                        %h1= link_to "Instaharam", posts_path
+                %section.top-bar-section
+                    %ul.right
                         %li.divider
-                        %li= link_to "Register", new_user_registration_path
-                    - else
-                        %li= link_to "Sign out", destroy_user_session_path, method: "delete" 
-                        %li.divider
-                        %li= link_to "Profile", user_profile_path(current_user)
+                        - unless current_user
+                            %li= link_to "Sign in", new_user_session_path
+                            %li.divider
+                            %li= link_to "Register", new_user_registration_path
+                        - else
+                            %li= link_to "Sign out", destroy_user_session_path, method: "delete" 
+                            %li.divider
+                            %li= link_to "Profile", user_profile_path(current_user)
         = yield
         = javascript_include_tag 'application', 'data-turbolinks-track' => true
 
