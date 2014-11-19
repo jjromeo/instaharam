@@ -1,8 +1,8 @@
 %h2 Post an image
 
-= form_for @post, :html => { :multipart => true } do |f|
-	= f.label :image
-	= f.file_field :image
-	= f.label :caption
-	= f.text_field :caption
-	= f.submit name: "Create Post"
+= form_for @post, data: {abide: true}, :html => {:multipart => true } do |f|
+    = f.label :image
+    = f.file_field :image, required: true
+    = f.label :caption
+    = f.text_field :caption
+    = f.submit name: "Create Post"
