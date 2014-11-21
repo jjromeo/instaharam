@@ -25,6 +25,10 @@
                             %li= link_to "Sign out", destroy_user_session_path, method: "delete" 
                             %li.divider
                             %li= link_to "Profile", user_profile_path(current_user)
+                    %ul.left
+                        - if current_user
+                            %li.divider
+                            %li= link_to "Add a post", new_post_path 
         = yield
         = javascript_include_tag 'application', 'data-turbolinks-track' => true
 
