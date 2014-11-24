@@ -1,1 +1,19 @@
+Instaharam
+=============
+
 A project using ruby on rails to recreate popular photo sharing app instagram
+
+It allows users to sign up and make posts. Additionally you can visit other user's profiles through clicking on their names.
+
+Technologies used include:
+-----------------------
+- Ruby on rails
+- Paperlip
+- Rspec
+- Capybara
+
+How to use: 
+-------------
+1. Git clone repo 
+2. gem install
+3. bin/rails s
