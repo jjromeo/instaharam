@@ -32,10 +32,10 @@ ActiveRecord::Schema.define(version: 20141128121828) do
     t.string   "href"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "Post_id"
+    t.integer  "post_id"
   end
 
-  add_index "hashtags", ["Post_id"], name: "index_hashtags_on_Post_id", using: :btree
+  add_index "hashtags", ["post_id"], name: "index_hashtags_on_post_id", using: :btree
 
   create_table "likes", force: true do |t|
     t.integer  "post_id"
