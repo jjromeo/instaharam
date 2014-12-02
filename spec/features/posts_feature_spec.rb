@@ -63,7 +63,7 @@ describe 'adding hashtags to posts' do
             add_post("I am #super cool")
             add_post("I am #super awesome")
             add_post("Not super anymore")
-            click_link "#super"
+            first(:link, '#super').click
             expect(page).to have_content "I am #super cool"
             expect(page).to have_content "I am #super awesome"
             expect(page).not_to have_content "Not super anymore"

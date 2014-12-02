@@ -2,23 +2,7 @@
     .post-container.panel
         -if @user.posts.any?
             - @user.posts.each do |post|
-                .post.panel
-                    - unless post.image.url == "/images/original/missing.png"
-                        = image_tag post.image.url, class: "post-image"
-                    %p.post-text= post.caption
-                    by
-                    = link_to "#{post.user.username}", user_profile_path(post.user_id) 
-                    #likes
-                        %span{class:'likes-count'}
-                            = "#{pluralize(post.likes.count, 'like')}"
-                        = link_to 'like', post_likes_path(post), class: "likes-link"
-                    %table
-                        %tbody
-                            - post.comments.each do |comment|
-                                %tr
-                                    %td.post-text.comment= "#{comment.text} by #{User.find(comment.user_id).username}"
-                    -if current_user
-                        = link_to "Comment!", new_post_comment_path(post)
+                = render post, post: post
 
         - else
             %h1= "This is where #{@user.username}'s posts will show"
