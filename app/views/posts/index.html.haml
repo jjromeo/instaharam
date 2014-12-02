@@ -5,7 +5,7 @@
                 .post.panel
                     - unless post.image.url == "/images/original/missing.png"
                         = image_tag post.image.url, class: "post-image"
-                    %p.post-text= post.caption
+                    %p.post-text= post.caption.html_safe
                     by
                     = link_to "#{post.user.username}", user_profile_path(post.user_id) 
                     #likes
