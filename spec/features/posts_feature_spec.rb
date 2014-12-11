@@ -57,7 +57,7 @@ describe 'adding a post' do
 end
 
 describe 'adding hashtags to posts' do 
-        it 'creates a clickable hashtag when you add a caption with hashtags' do
+        xit 'creates a clickable hashtag when you add a caption with hashtags' do
             sign_up
             visit '/posts'
             add_post("I am #super cool")
@@ -70,4 +70,12 @@ describe 'adding hashtags to posts' do
         end
 end
 
-
+describe 'deleting a post' do 
+    it 'lets you remove one of your own posts' do 
+        sign_up
+        visit '/posts'
+        add_post("A post that will soon be gone")
+        click_link "Delete Post"
+        expect(page).not_to have_content "A post that will soon be gone"
+    end
+end

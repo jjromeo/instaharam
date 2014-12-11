@@ -15,3 +15,5 @@
                     %td.post-text.comment= "#{comment.text} by #{User.find(comment.user_id).username}"
     -if current_user
         = link_to "Comment!", new_post_comment_path(post)
+    -if current_user == User.find(post.user_id)
+        = link_to "Delete Post", post_path(post), method: "delete"

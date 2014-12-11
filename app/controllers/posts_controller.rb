@@ -24,6 +24,13 @@ class PostsController < ApplicationController
         @post = Post.update(params[:id], params[:post].permit(:caption))
     end
 
+    def destroy
+        session[:return_to] ||= request.referer
+        @post = Post.find(params[:id])
+        @post.destroy
+        redirect_to session.delete(:return_to)
+    end
+
     def parse_hashtags(post)
         caption = post.caption
         if  caption.include?("#")
