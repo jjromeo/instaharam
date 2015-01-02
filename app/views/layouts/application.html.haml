@@ -29,6 +29,8 @@
                         - if current_user
                             %li.divider
                             %li= link_to "Add a post", new_post_path 
+        - unless @disable_separator
+            .separator
         = yield
         = javascript_include_tag 'application', 'data-turbolinks-track' => true
 
