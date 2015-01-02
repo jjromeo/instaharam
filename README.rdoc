@@ -17,4 +17,7 @@ How to use:
 -------------
 1. Git clone repo 
 2. gem install
-3. bin/rails s
+3. make sure imagemagick is installed.
+4. bin/rails s
+
+or simply visit instaharam.herokuapp.com
