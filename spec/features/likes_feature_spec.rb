@@ -1,9 +1,10 @@
 require 'rails_helper'
 
-xdescribe 'liking a picture' do
+describe 'liking a picture' do
 
 	before do 
-		cool_pic = Post.create(caption: 'Such a great pic!')
+    jjromeo = User.create(email:"jjrome@jjromeo.com", password: "password")
+		jjromeo.posts.create(caption: 'Such a great pic!')
 	end
 
 	it "can like a post updating the like count", js: true do 
