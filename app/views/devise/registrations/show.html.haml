@@ -1,5 +1,6 @@
 .row
     .post-container.panel
+        %h2.profile-header= "#{@user.username}"
         -if @user.posts.any?
             - @user.posts.each do |post|
                 = render post, post: post
