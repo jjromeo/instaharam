@@ -10,6 +10,8 @@ devise_scope :user do
     get 'users/:id/show' => "profile#show", as: "user_profile"
 end
 
+get 'hashtags/:keyword' => 'posts#search', as: "hashtag_search"
+
 root 'posts#index'
 
 

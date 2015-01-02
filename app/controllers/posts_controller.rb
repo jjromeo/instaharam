@@ -5,8 +5,16 @@ class PostsController < ApplicationController
     @posts = Post.order("created_at desc")
   end
 
-  def new 
+  def new
     @post = Post.new
+  end
+
+  def search
+    @disable_separator = true
+    @hashtag = params[:keyword]
+    @posts = Post.all.select do |post| 
+      post.hashtags.any? { |hashtag| hashtag.content.include?(@hashtag)}
+    end
   end
 
   def create
