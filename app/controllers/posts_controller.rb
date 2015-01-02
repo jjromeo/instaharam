@@ -12,7 +12,7 @@ class PostsController < ApplicationController
   def search
     @disable_separator = true
     @hashtag = params[:keyword]
-    @posts = Post.all.select do |post| 
+    @posts = Post.order("created_at desc").select do |post| 
       post.hashtags.any? { |hashtag| hashtag.content.include?(@hashtag)}
     end
   end
