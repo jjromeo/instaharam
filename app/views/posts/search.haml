@@ -1,0 +1,9 @@
+.row
+    .post-container.panel
+        %h3= "search results for the '##{@hashtag}'"
+        -if @posts.any?
+            - @posts.each do |post|
+                = render post, post: post
+
+        - else
+            %h1 No posts with that hashtag yet

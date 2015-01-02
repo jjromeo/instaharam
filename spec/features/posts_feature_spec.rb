@@ -57,7 +57,7 @@ describe 'adding a post' do
 end
 
 describe 'adding hashtags to posts' do 
-        xit 'creates a clickable hashtag when you add a caption with hashtags' do
+        it 'creates a clickable hashtag when you add a caption with hashtags' do
             sign_up
             visit '/posts'
             add_post("I am #super cool")
