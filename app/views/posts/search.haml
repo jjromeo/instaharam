@@ -1,6 +1,6 @@
 .row
     .post-container.panel
-        %h3= "search results for the '##{@hashtag}'"
+        %h3= "search results for '##{@hashtag}'"
         -if @posts.any?
             - @posts.each do |post|
                 = render post, post: post
