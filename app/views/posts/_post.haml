@@ -4,6 +4,7 @@
     %p.post-text= post.caption.html_safe
     by
     = link_to "#{post.user.username}", user_profile_path(post.user_id) 
+    %p= "#{time_ago_in_words(post.created_at)} ago"
     #likes
         %span{class:'likes-count'}
             = "#{pluralize(post.likes.count, 'like')}"
@@ -12,7 +13,12 @@
         %tbody
             - post.comments.each do |comment|
                 %tr
-                    %td.post-text.comment= "#{comment.text} by #{User.find(comment.user_id).username}"
+                    %td.post-text.comment
+                        %p.comment= "#{comment.text}"
+                        %p.comment-details
+                            = "by"
+                            = link_to "#{comment.user.username}", user_profile_path(comment.user_id)
+                            = "#{time_ago_in_words(comment.created_at)} ago"
     -if current_user
         = link_to "Comment!", new_post_comment_path(post)
     -if current_user == User.find(post.user_id)

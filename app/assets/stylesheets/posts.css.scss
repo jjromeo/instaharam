@@ -46,6 +46,10 @@ div.post-container.panel {
     box-shadow: inset 1px 0 0 rgba(0,0,0,.05), inset -1px 0 0 rgba(0,0,0,.05);
     border: 1px solid rgba(0,0,0,.1);
 }
+
+p.comment-details {
+  color: hsla(100, 10, 10, 0.2);
+}
 table {
     width: 100%;
 }
