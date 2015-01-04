@@ -14,7 +14,7 @@
             - post.comments.each do |comment|
                 %tr
                     %td.post-text.comment
-                        %p.comment= "#{comment.text}"
+                        %p.comment= comment.text.html_safe
                         %p.comment-details
                             = "by"
                             = link_to "#{comment.user.username}", user_profile_path(comment.user_id)

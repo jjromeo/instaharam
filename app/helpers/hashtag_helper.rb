@@ -14,7 +14,7 @@ module HashtagHelper
   end
 
   def render_comment_hashtags(comment)
-    comment.hashtags.each {|hashtag| comment.caption = comment.caption.gsub(/(#{hashtag.content})/, "<a href='/#{hashtag.href}'>#{hashtag.content}</a>")}
+    comment.hashtags.each {|hashtag| comment.text = comment.text.gsub(/(#{hashtag.content})/, "<a href='/#{hashtag.href}'>#{hashtag.content}</a>")}
     comment.save!
   end
 
