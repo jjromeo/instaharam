@@ -1,14 +1,19 @@
 class CommentsController < ApplicationController
-	def new
-		@post = Post.find(params[:post_id])
-		@comment = Comment.new
-	end
+  include HashtagHelper
 
-	def create
-		@post = Post.find(params[:post_id])
-		@comment = @post.comments.new(params[:comment].permit(:text))
-        @comment.user_id = current_user.id
-        @comment.save
-		redirect_to posts_path
-	end
+  def new
+    @post = Post.find(params[:post_id])
+    @comment = Comment.new
+  end
+
+  def create
+    @post = Post.find(params[:post_id])
+    @comment = @post.comments.new(params[:comment].permit(:text))
+    @comment.user_id = current_user.id
+    if @comment.save
+      parse_comment_hashtags(@comment)
+      render_comment_hashtags(@comment)
+    end
+      redirect_to posts_path
+  end
 end
