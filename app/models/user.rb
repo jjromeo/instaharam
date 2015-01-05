@@ -5,4 +5,9 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  #socializations gem
+  acts_as_followable
+  acts_as_follower
+
 end
