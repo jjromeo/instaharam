@@ -49,7 +49,8 @@ gem 'launchy', group: :test
 gem 'capybara', group: :test
 gem 'database_cleaner', group: :test
 gem 'poltergeist', group: :test
-
+gem 'shoulda', group: :test
+gem "factory_girl_rails", "~> 4.0", group: :test
 gem 'haml-rails'
 gem "paperclip", "~> 4.2"
 gem 'aws-sdk'
