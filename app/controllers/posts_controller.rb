@@ -22,6 +22,7 @@ class PostsController < ApplicationController
     end
   end
 
+  # CHECK new hashtags may not be rendered when updating a post
   def update
     @post = Post.update(params[:id], params[:post].permit(:caption))
   end

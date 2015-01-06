@@ -8,4 +8,14 @@ FactoryGirl.define do
   factory :post do 
     caption "Having so much fun!"
   end
+
+  factory :comment do 
+    text "This is a real #hashtag"
+  end
+
+  factory :hashtag do 
+    content "#hashtag"
+    href "/hashtags/hashtag"
+  end
+
 end

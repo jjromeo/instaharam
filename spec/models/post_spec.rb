@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe Post, type: :model do 
+RSpec.describe Post, type: :model do 
   before do 
   end
 
