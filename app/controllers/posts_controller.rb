@@ -14,7 +14,6 @@ class PostsController < ApplicationController
     @user = current_user
     @post = @user.posts.new(params[:post].permit(:caption, :image))
     if @post.save
-      parse_post_hashtags(@post)
       render_hashtags(@post)
       redirect_to posts_path
     else
