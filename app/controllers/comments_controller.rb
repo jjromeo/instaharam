@@ -11,7 +11,6 @@ class CommentsController < ApplicationController
     @comment = @post.comments.new(params[:comment].permit(:text))
     @comment.user_id = current_user.id
     if @comment.save
-      parse_comment_hashtags(@comment)
       render_comment_hashtags(@comment)
     end
       redirect_to posts_path

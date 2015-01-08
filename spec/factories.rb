@@ -10,6 +10,7 @@ FactoryGirl.define do
   end
 
   factory :comment do 
+    association :post
     text "This is a real #hashtag"
   end
 
