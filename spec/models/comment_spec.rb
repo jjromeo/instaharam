@@ -6,9 +6,9 @@ RSpec.describe Comment, type: :model do
 
   it 'should be able to reference the hashtags in it\'s post' do 
     post = create(:post) do |post|
-      post.comments.create(attributes_for(:comment))
+      @comment = post.comments.create(attributes_for(:comment))
     end
-    puts post.comments.first.hashtags
+    expect(@comment.hashtags.first.content).to eq '#hashtag'
   end
 end
 
