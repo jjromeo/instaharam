@@ -12,4 +12,8 @@ def create
 	render json: {new_like_count: "#{pluralize(@post.likes.count, 'like')}" }
 end
 
+def index
+	render json: {new_like_count: "#{pluralize(@post.likes.count, 'like')}" }
+end
+
 end
