@@ -14,12 +14,21 @@ describe 'liking a picture' do
     click_link 'like'
     expect(page).to have_content '1 like'
     expect(@post.likes.count).to eq 1
-    puts @post.likes.count
   end
 
   it "can't like a post unless signed in", js: true do 
     visit '/posts'
     expect(page).not_to have_link 'like'
+  end
+
+  it 'clicking a link twice will like and then unlike it', js: true do 
+    sign_up
+    visit '/posts'
+    click_link 'like'
+    click_link 'like'
+    expect(page).to have_content '0 likes'
+    save_and_open_page
+    expect(@post.likes.count).to eq 0
   end
 
 end
