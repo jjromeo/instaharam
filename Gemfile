@@ -43,14 +43,17 @@ gem 'rmagick'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+group :test do 
+  gem 'rspec-rails'
+  gem 'launchy'
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'poltergeist'
+  gem 'shoulda'
+  gem 'phantomjs', require: 'phantomjs/poltergeist'
+  gem "factory_girl_rails", "~> 4.0"
+end
 
-gem 'rspec-rails', group: :test
-gem 'launchy', group: :test
-gem 'capybara', group: :test
-gem 'database_cleaner', group: :test
-gem 'poltergeist', group: :test
-gem 'shoulda', group: :test
-gem "factory_girl_rails", "~> 4.0", group: :test
 gem 'haml-rails'
 gem "paperclip", "~> 4.2"
 gem 'aws-sdk'
