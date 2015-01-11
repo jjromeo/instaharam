@@ -4,7 +4,6 @@ class PostsController < ApplicationController
   def index
     @disable_separator = true
     @posts = Post.order("created_at desc")
-    @comment = Comment.new
   end
 
   def new
