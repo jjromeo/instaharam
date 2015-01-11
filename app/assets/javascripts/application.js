@@ -12,7 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+//= require modernizr.custom.72741
+//= require fastclick
 //= require foundation.min
 //= require_tree .
 $(document).foundation();

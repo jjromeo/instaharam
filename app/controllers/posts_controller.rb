@@ -3,6 +3,7 @@ class PostsController < ApplicationController
 
   def index
     @disable_separator = true
+    @post = Post.new
     @posts = Post.order("created_at desc")
   end
 

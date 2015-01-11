@@ -8,6 +8,7 @@
         = javascript_include_tag "vendor/modernizr"
         = csrf_meta_tags
         %link{href:"http://fonts.googleapis.com/css?family=Dancing+Script", rel:"stylesheet", type:"text/css"}
+        = javascript_include_tag "vendor/modernizr"
     %body
         .fixed
             %nav.top-bar
@@ -28,7 +29,17 @@
                     %ul.left
                         - if current_user
                             %li.divider
-                            %li= link_to "Add a post", new_post_path 
+                            %li= link_to "Add a post", '#', :'data-reveal-id' => 'add-post-modal'
+            #add-post-modal.reveal-modal
+                - @new_post = Post.new
+                = form_for @new_post, data: {abide: true}, :html => {:multipart => true } do |f|
+                    = f.label :image
+                    = f.file_field :image, required: true
+                    = f.label :caption
+                    = f.text_field :caption
+                    = f.submit name: "Create Post"
+                %a.close-reveal-modal& &#215;
+
         - if @disable_separator
             = yield
         - else
@@ -37,5 +48,5 @@
                     .large-8.columns
                         = yield
 
-        = javascript_include_tag 'application', 'data-turbolinks-track' => true
+        = javascript_include_tag 'application'
 
