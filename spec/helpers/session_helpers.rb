@@ -1,5 +1,5 @@
 module SessionHelper
-    def sign_up(email = "tester@test.com", username = "tester", password = "password")
+    def sign_up(email = "tester2@test.com", username = "tester", password = "password")
         visit '/users/sign_up'
         fill_in 'Email', with: email
         fill_in 'Username', with: username

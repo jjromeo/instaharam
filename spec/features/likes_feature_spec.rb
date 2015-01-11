@@ -27,7 +27,6 @@ describe 'liking a picture' do
     click_link 'like'
     click_link 'like'
     expect(page).to have_content '0 likes'
-    save_and_open_page
     expect(@post.likes.count).to eq 0
   end
 

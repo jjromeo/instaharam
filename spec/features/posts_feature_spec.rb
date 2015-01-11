@@ -9,6 +9,7 @@ describe 'posts' do
         before do
             sign_up
         end
+
         it 'should display a prompt to add pictures' do 
             visit '/posts'
             expect(page).to have_content 'No posts yet'
@@ -19,10 +20,10 @@ describe 'posts' do
     context 'posts have been added' do 
         before do 
             sign_up
-            add_post
         end
 
         it 'should display posts' do 
+            add_post
             visit '/posts'
             expect(page).to have_content('So much fun!')
             expect(page).not_to have_content('No posts yet')
@@ -44,7 +45,7 @@ describe 'adding a post' do
 
         it 'displays the name of the user who posted it' do 
             add_post
-            expect(page).to have_content 'by tester'
+            expect(page).to have_content 'tester'
         end
     end
     

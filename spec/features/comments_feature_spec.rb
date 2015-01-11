@@ -6,9 +6,8 @@ describe 'comments' do
     sign_up
     add_post
     visit '/posts'
-    click_link "Comment!"
-    fill_in "Text", with: "Amazing testing!"
-    click_button 'send'
+    fill_in 'comment[text]', with: "Amazing testing!"
+    click_button 'comment'
     expect(page).to have_content "Amazing testing!"
   end
 
@@ -18,10 +17,9 @@ describe 'comments' do
     click_link 'Sign out'
     sign_up('jerome@test.com', 'jjromeo')
     visit '/posts'
-    click_link "Comment!"
-    fill_in "Text", with: "Amazing testing!"
-    click_button 'send'
-    expect(page).to have_content "by jjromeo"
+    fill_in 'comment[text]', with: "Amazing testing!"
+    click_button 'comment'
+    expect(page).to have_content "jjromeo"
   end
 
   it 'creates clickable hashtags when comments are made' do 
@@ -30,9 +28,8 @@ describe 'comments' do
     click_link 'Sign out'
     sign_up('jerome@test.com', 'jjromeo')
     visit '/posts'
-    click_link "Comment!"
-    fill_in "Text", with: "Amazing #comments" 
-    click_button 'send'
+    fill_in 'comment[text]', with: "Amazing #comments"
+    click_button 'comment'
     click_link '#comments'
     expect(page).to have_content 'So much fun!'
   end
