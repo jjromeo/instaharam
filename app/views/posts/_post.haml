@@ -20,6 +20,10 @@
                             = link_to "#{comment.user.username}", user_profile_path(comment.user_id)
                             = "#{time_ago_in_words(comment.created_at)} ago"
     -if current_user
-        = link_to "Comment!", new_post_comment_path(post)
+        = form_for @comment, url: { controller: 'posts', post_id: post.id, controller: 'comments' } do  |f|
+            = f.label :text
+            = f.text_field :text
+            = f.submit 'send'
+        
     -if current_user == User.find(post.user_id)
         = link_to "Delete Post", post_path(post), method: "delete"
