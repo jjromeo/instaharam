@@ -31,7 +31,6 @@ img.post-image {
     padding: 0;
     border: 1px solid ;
     border-color: rgba(0,0,0,.2);
-    border-radius: 4px;
     box-shadow: 0 0 2px 2px hsla(100,10,30, 0.1);
 }
 
@@ -53,13 +52,6 @@ div.post-container.panel {
 table {
     width: 100%;
 }
-input.tiny.button.submit-comment {
-  border-radius: 2px;
-}
-textarea#comment_text {
-  border-radius: 2px;
-  resize: none;
-}
 .submit-comment {
   position: relative;
   left: 82%;
@@ -67,7 +59,22 @@ textarea#comment_text {
 }
 
 // Removing padding on post comments
-td.post-text.comment {
+.post-text{
   padding-bottom: 0;
   padding-left: 5%;
+}
+
+.caption {
+  padding-top: 7px;
+  padding-bottom: 4px;
+}
+
+span.post-text {
+  padding-left: 0;
+}
+p.comment {
+  margin-bottom: 0.25rem;
+}
+textarea#comment_text {
+  resize: none
 }

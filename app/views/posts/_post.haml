@@ -1,14 +1,15 @@
 .post.panel
     - unless post.image.url == "/images/original/missing.png"
         = image_tag post.image.url, class: "post-image"
-    %p.post-text= post.caption.html_safe
-    by
-    = link_to "#{post.user.username}", user_profile_path(post.user_id) 
-    %p= "#{time_ago_in_words(post.created_at)} ago"
-    #likes
-        %span{class:'likes-count'}
-            = "#{pluralize(post.likes.count, 'like')}"
-        = link_to 'like', post_likes_path(post), class: "likes-link" if current_user
+    .post-text.caption
+        = link_to "#{post.user.username}", user_profile_path(post.user_id) 
+        %span= post.caption.html_safe
+        %span.comment-details
+            = "#{time_ago_in_words(post.created_at)} ago"
+        #likes
+            %span{class:'likes-count'}
+                = "#{pluralize(post.likes.count, 'like')}"
+            = link_to 'like', post_likes_path(post), class: "likes-link" if current_user
     %table
         %tbody
             - post.comments.each do |comment|
@@ -17,7 +18,6 @@
                         %p.comment 
                             = link_to "#{comment.user.username}", user_profile_path(comment.user_id), class: "comment"
                             = comment.text.html_safe 
-                            %br
                             %span.comment-details
                                 = "\n#{time_ago_in_words(comment.created_at)} ago"
     - if current_user
