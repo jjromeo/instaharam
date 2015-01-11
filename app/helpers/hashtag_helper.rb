@@ -13,6 +13,7 @@ module HashtagHelper
   def search
     @disable_separator = true
     @hashtag = params[:keyword]
+    @comment = Comment.new
     @posts = Post.order("created_at desc").select do |post| 
       post.hashtags.any? { |hashtag| hashtag.content.include?(@hashtag)}
     end
