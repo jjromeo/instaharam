@@ -47,9 +47,26 @@ div.post-container.panel {
     border: 1px solid rgba(0,0,0,.1);
 }
 
-p.comment-details {
+.comment-details {
   color: hsla(100, 10, 10, 0.2);
 }
 table {
     width: 100%;
+}
+input.tiny.button.submit-comment {
+  border-radius: 2px;
+}
+textarea#comment_text {
+  border-radius: 2px;
+  resize: none;
+}
+.submit-comment {
+  position: relative;
+  left: 82%;
+  margin-bottom: 0;
+}
+
+// Removing padding on post comments
+td.post-text.comment {
+  padding-bottom: 0;
 }
