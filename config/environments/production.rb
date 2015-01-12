@@ -1,6 +1,8 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+  config.assets.precompile += %w( vendor/modernizr.js )
+
   config.paperclip_defaults = {
       :storage => :s3,
       s3_host_name: 's3-eu-west-1.amazonaws.com',

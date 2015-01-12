@@ -12,8 +12,12 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require foundation.min
 //= require modernizr.custom.72741
 //= require fastclick
-//= require foundation.min
+//= require foundation.reveal
 //= require_tree .
+
 $(document).foundation();
+
+$(function(){ $(document).foundation(); });
