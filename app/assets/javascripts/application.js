@@ -18,6 +18,6 @@
 //= require foundation.reveal
 //= require_tree .
 
-$(document).foundation();
 
-$(function(){ $(document).foundation(); });
+
+$(document).foundation(); 
