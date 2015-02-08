@@ -21,6 +21,15 @@ Rails.application.configure do
   #for devise mailing
   config.action_mailer.default_url_options = { host: 'localhost:3000' }
   config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address: 'smtp.gmail.com',
+    port: 587,
+    domain: 'jeromepratt.com',
+    authentication: 'plain',
+    enable_starttls_auto: true,
+    user_name: Rails.application.secrets.GMAIL_USERNAME,
+    password: Rails.application.secrets.GMAIL_PASSWORD
+  }
 
   # Raise an error on page load if there are pending migrations.
   config.active_record.migration_error = :page_load
