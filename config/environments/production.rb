@@ -45,7 +45,7 @@ Rails.application.configure do
 
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
 
-  config.action_mailer.default_url_options = { host: 'smtp.mandrillapp.com' }
+  config.action_mailer.default_url_options = { host: 'instaharam.herokuapp.com' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     address: 'smtp.mandrillapp.com',
